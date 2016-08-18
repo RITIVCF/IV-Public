@@ -12,11 +12,14 @@ export default class UpcomingEventsWrapper extends TrackerReact(React.Component)
   constructor() {
     super();
 
+    var dayofweek = new moment(this.state.day.toISOString()).isoWeekday();
+
     this.state = {
       subscription: {
         Events: Meteor.subscribe("publishedEvents")  // for only grabbing published events
         //  on the public site.
-      }
+      },
+      start: new moment(this.state.day.toISOString()).subtract(dayofweek-1,"days")
     };
   }
 
@@ -35,17 +38,43 @@ export default class UpcomingEventsWrapper extends TrackerReact(React.Component)
     }).fetch();
   }
 
+  conferences(){
+    return Events.find({
+      end: {$gt: new Date()},
+      tags: "Conferences"
+    },
+    {
+      sort: {start:1}// Sorts ascending chronologically by start
+    }).fetch();
+  }
+
+  getDays(){
+    for(i=0;i<7;i++){
+      days.push(this.state.start.add(i,"days"));
+    }
+
+    return days;
+
+  }
+
+  next(){
+    this.state.start = new moment(this.state.start.toISOString()).add(1, "week");
+  }
+
+  prev(){
+    this.state.start = new moment(this.state.start.toISOString()).subtract(1, "week");
+  }
+
 
 	render() {
 
 		return (
     <div className="upcoming">
-      <h2>Upcoming Events</h2>
-      <ul>
-        {this.events().map( (ivevent)=>{
-            return <EventSingle key={ivevent._id} ivevent={ivevent} />
+
+        {this.getDays().map( (day)=>{
+            return <EventDay key={day} day={day} />
         })}
-    </ul>
+
     </div>
 		)
 	}

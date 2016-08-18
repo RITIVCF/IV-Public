@@ -3,10 +3,22 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import PrayerSingle from './PrayerSingle.jsx';
 
 export default class PrayerWrapper extends TrackerReact(React.Component){
+  constructor() {
+    super();
+
+    this.state = {
+      subscription: {
+        Events: Meteor.subscribe("prayerEvents")
+      }
+    };
+  }
+
+  componentWillUnmount() {
+    this.state.subscription.Events.stop();
+  }
+
   prayermeetings(){
-    weeksahead = 2;
-    return Events.find({$and: [{tags: "Prayer"}, {published: true}, {end: {$gt: new Date()}},
-      {start: {$lt: moment().add(weeksahead,"weeks")._d}}]}).fetch();
+    return Events.find().fetch();
   }
 
   render(){

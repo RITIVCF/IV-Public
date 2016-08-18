@@ -2,7 +2,7 @@ import React from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import SmallGroupSingle from './SmallGroupSingle.jsx';
 
-Groups = new Mongo.Collection('groups');
+//Groups = new Mongo.Collection('groups');
 
 export default class SmallGroupWrapper extends TrackerReact(React.Component){
   smallgroups(){

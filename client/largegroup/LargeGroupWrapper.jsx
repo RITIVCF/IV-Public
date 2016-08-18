@@ -3,20 +3,28 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import LargeGroupSingle from './LargeGroupSingle.jsx';
 
 
-Events = new Mongo.Collection("events");
+//Events = new Mongo.Collection("events");
 
 export default class LargeGroupWrapper extends TrackerReact(React.Component){
+  constructor() {
+    super();
+
+    this.state = {
+      subscription: {
+        Events: Meteor.subscribe("largeGroups")
+      }
+    };
+  }
+
+  componentWillUnmount() {
+    this.state.subscription.Events.stop();
+  }
+
   largegroups() {
-    weeksahead = 4;
-    return Events.find({$and: [{tags: "Large Group"}, {published: true}, {end: {$gt: new Date()}},
-      {start: {$lt: moment().add(weeksahead,"weeks")._d}}]}).fetch();
+    return Events.find({tags:"Large Group"}).fetch();
 
 
     //{tags: "Large Group"}
-  }
-
-  testtags() {
-    return ["Large Group","Social","NSO","Other"];
   }
 
   render(){
@@ -38,9 +46,7 @@ export default class LargeGroupWrapper extends TrackerReact(React.Component){
               return <LargeGroupSingle key={lgevent._id} lgevent={lgevent} />
           })}
         </ul>
-        <ul className="testtags">
 
-        </ul>
       </div>
     )
   }

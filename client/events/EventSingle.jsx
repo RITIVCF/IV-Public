@@ -6,12 +6,16 @@ export default class EventSingle extends Component {
     // opens event in event workspace
 
   }
+
+  //  <div> className="wcol">
+  //    <div className="EventBox z-depth-1"></div>
+  //  </div>
   render() {
 
     return (
-      <li>
-        {this.props.ivevent.name}
-      </li>
+      <div className="EventBox z-depth-1">
+        {this.ev.name}
+      </div>
     )
   }
 }

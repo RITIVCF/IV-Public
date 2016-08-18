@@ -1,6 +1,7 @@
 import React from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import EventCalendar from './EventCalendar.jsx';
+import Loading from 'react-loading';
 
 
 //Events = new Mongo.Collection("events");
@@ -48,14 +49,18 @@ export default class EventCalendarWrapper extends TrackerReact(React.Component) 
   }
 
 	render() {
-
+    if(!this.state.subscription.Events.ready()){
+      return(<div><header className="special container">
+        <span className="icon fa-map-maker"></span>
+        <h2>Events <strong>Calendar</strong></h2>
+      </header><Loading type="spin" color="FFF" /></div>)
+    }
 		return (
     <div>
       <header className="special container">
         <span className="icon fa-map-maker"></span>
         <h2>Events <strong>Calendar</strong></h2>
       </header>
-
         <div className="calendar">
           <EventCalendar events={this.fetchScheduled} ref="calendar"/>
         </div>

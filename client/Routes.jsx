@@ -110,12 +110,11 @@ FlowRouter.route('/getinvolved', {
 	}
 });
 
-FlowRouter.route('/forms/member', {
-	action() {
+FlowRouter.route('/forms/become_a_member/:cid', {
+	action(params) {
 		mount(FormLayout, {
-				content: (<MemberWrapper />)
-			}
-		)
+			content: (<MemberWrapper cid={params.cid} />)
+		})
 	}
 });
 

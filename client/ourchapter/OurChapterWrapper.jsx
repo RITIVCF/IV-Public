@@ -2,7 +2,7 @@ import React from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import BioSingle from './BioSingle.jsx';
 
-Bios = new Mongo.Collection('bios');
+//Bios = new Mongo.Collection('bios');
 
 export default class OurChapterWrapper extends TrackerReact(React.Component){
   constructor() {

@@ -2,6 +2,7 @@ import React from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import UpcomingEventsWrapper from './events/UpcomingEventsWrapper.jsx';
 
+
 export default class IndexWrapper extends TrackerReact(React.Component){
   render(){
     return (

@@ -3,7 +3,9 @@ import React from 'react';
 export const PublicLayout = ({content}) => (
 	<div className="public-layout">
         <header id="header">
-					<a href="/"><h1 id="logo">RIT IVCF</h1></a>
+					<a href="/">
+						<img src="/images/InterVarsity-RIT-ablogo-color.png" alt={"IVCF logo"} style={{height: 28, verticalAlign: "middle"}} />
+						</a>
             <nav id="nav">
 							<ul>
                 <li class="current"><a href="/about">About</a></li>
