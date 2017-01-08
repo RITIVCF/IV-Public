@@ -1,0 +1,47 @@
+
+
+
+#Aspects {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  margin: 0;
+  background-color: #1A3D6D;
+  > div {
+    text-align: center;
+    height: 170px;
+    > i {
+      font-size: 7rem;
+      color: #fff;
+    }
+  }
+}
+
+.details {
+  height: 400px;
+}
+
+.active {
+
+}
+
+#slider {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  background-color: #fff;
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.Transformed {
+  margin-left: 0 !important;
+}
+
+.Renewed {
+  margin-left: 33.33333% !important;
+}
+
+.Developed {
+  margin-left: 66.66666% !important;
+}

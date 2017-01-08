@@ -1,0 +1,49 @@
+@import "./sass/materialize.scss";
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.page-box {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/fonts/montserrat-regular.ttf");
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url("/fonts/futura-medium.ttf");
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url("/fonts/gotham-medium.ttf");
+}
+
+@font-face {
+  font-family: 'Homestead';
+  src: url("/fonts/homestead.ttf");
+}
+
+@font-face {
+  font-family: 'Lobster';
+  src: url("/fonts/lobster.otf");
+}
+
+@font-face {
+  font-family: 'Ostrich';
+  src: url("/fonts/ostrich-regular.ttf");
+}

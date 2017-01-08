@@ -1,0 +1,46 @@
+
+.wcol {
+  display: block;
+  width: 14.2857%;
+  min-height: 1px;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  float: left;
+  box-sizing: border-box;
+}
+
+.wrow {
+  width: 100%;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.WeekHeader {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #1A3D6D;
+  color: #FCB816;
+  text-align: center;
+  > h2 {
+    display: inline-block;
+  }
+  > div {
+    height: 2rem;
+    line-height: 2rem;
+  }
+}
+
+.WeekContent {
+
+}
+
+.EventBox {
+  min-height: 50px;
+  margin: 0.2rem;
+  padding: 0.5rem;
+  background-color: #fff;
+}

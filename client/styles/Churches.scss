@@ -1,0 +1,15 @@
+
+.ChurchBox {
+  display: block;
+  width: 25%;
+  min-height: 1px;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  float: left;
+  > div {
+    margin: 0.2rem;
+    padding: 0.5rem;
+    background-color: #fff;
+  }
+}
