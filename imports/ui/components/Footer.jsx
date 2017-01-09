@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+//import { a } from 'react-router';
 
 export default class Footer extends React.Component {
   render() {
@@ -13,16 +13,16 @@ export default class Footer extends React.Component {
           </div>
           <div className="col s6 m2 l2">
             <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/events">Events</Link></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/events">Events</a></li>
             </ul>
           </div>
           <div className="col s6 m2 l2">
             <ul>
-              <li><Link to="/churches">Churches</Link></li>
-              <li><Link to="/prayer">Prayer</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li><a href="/churches">Churches</a></li>
+              <li><a href="/prayer">Prayer</a></li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
           <div className="col s12 m4 l4">

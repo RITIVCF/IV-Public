@@ -3,6 +3,7 @@ import FontSpace from '../components/FontSpace.jsx';
 import ChurchList from '../components/ChurchList.jsx';
 
 function Churches() {
+  /**/
   return (
     <div>
       <ChurchList />

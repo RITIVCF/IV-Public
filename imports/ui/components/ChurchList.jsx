@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import Church from './Church.jsx';
 

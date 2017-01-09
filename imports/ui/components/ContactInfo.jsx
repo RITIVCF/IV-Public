@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
 export default class ContactInfo extends React.Component {
 
@@ -7,7 +7,7 @@ export default class ContactInfo extends React.Component {
     return (
       <section id="ContactInfo" className="container row">
         <h1>We would love to hear from you!</h1>
-        
+
       </section>
     );
   }

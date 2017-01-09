@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import EventDay from './EventDay.jsx';
+import SmallGroups from './SmallGroups.jsx';
 import moment from "moment";
 
 
@@ -73,13 +74,17 @@ export default class WeekView extends TrackerReact(React.Component) {
           }):""}
         </div>
         <div className="wrow WeekHeader">
+          <h2>Small Groups</h2>
+        </div>
+        <SmallGroups />
+        <div className="wrow WeekHeader">
           <h2>Conferences</h2>
         </div>
         <div className="wrow WeekContent">
-          {this.state.subscription.Events.ready()?this.getConferences().map( (event)=>{
+          {this.state.subscription.Events.ready()?this.getConferences().length==0?this.getConferences().map( (event)=>{
             return <div key={event._id}>{event.name}<br/>{event.description}<br/>
             {monthNames[event.start.getMonth()]} {event.start.getDate()} - {event.end.getMonth()!=event.start.getMonth()?monthNames[event.end.getMonth()]+" ":""} {event.end.getDate()}</div>
-          }):""}
+        }):<p style={{textAlign: "center"}}>No Upcoming Conferences</p>:false}
         </div>
 
       </section>

@@ -1,10 +1,11 @@
-//var remote = new DDP.connect("http://localhost:80/");
-if(process.env.NODE_ENV=="development"){
-    var remote = new DDP.connect("http://ivy.rit.edu:3010/");
-}
-else {
-  var remote = new DDP.connect("http://ivy.rit.edu/");
-}
+import { Accounts } from 'meteor/accounts-base';
+var remote = new DDP.connect("http://localhost:3000/");
+// if(process.env.NODE_ENV=="development"){
+//     var remote = new DDP.connect("http://ivy.rit.edu:3010/");
+// }
+// else {
+//   var remote = new DDP.connect("http://ivy.rit.edu/");
+// }
 //Ethnicities = new Mongo.Collection("ethnicities");
 Events = new Mongo.Collection("events", remote);
 Contacts = new Mongo.Collection("contacts", remote);
@@ -13,6 +14,8 @@ Groups = new Mongo.Collection("groups",remote);
 Churches = new Mongo.Collection('churches',remote);
 Bios = new Mongo.Collection('bios');
 Options = new Mongo.Collection('options', remote);
+Accounts.connection = remote;
+Meteor.users = new Mongo.Collection('users', remote);
 
 //remote.subscribe('churches');
 var test = remote.subscribe("publicOptions", function(){
@@ -27,9 +30,9 @@ remote.subscribe('activeChurches', function(){
   return Churches.find();
 });
 
-remote.subscribe('allContacts', function(){
-  return Contacts.find();
-});
+// remote.subscribe('allContacts', function(){
+//   return Contacts.find();
+// });
 
 Meteor.publish('formOptions', function(){
   return Options.find({$or:[
@@ -41,7 +44,10 @@ Meteor.publish('formOptions', function(){
 });
 
 Meteor.publish("allContacts", function(){
-  return Contacts.find();
+  remote.subscribe('publicContacts', function(){
+    return Meteor.users.find();
+  });
+  return Meteor.users.find();
 });
 
 Meteor.publish("thisContact", function(cid){

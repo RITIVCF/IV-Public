@@ -1,26 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { a } from 'react-router';
 
 export default class Navigation extends React.Component {
   render() {
     return (
       <nav className="nav">
         <div className="nav-wrapper">
-          <Link to="/" className="brand-logo">
+          <a href="/" className="brand-logo">
           <img src="/images/InterVarsity-RIT-ablogo-color.png" />
-          </Link>
+          </a>
           <a href="#" data-activates="mobile-demo" className="button-collapse">
             <i className="material-icons">menu</i>
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/events">Events</Link></li>
-            <li><Link to="/churches">Churches</Link></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/gatherings">Gatherings</a></li>
+            <li><a href="/sg">Small Groups</a></li>
+            <li><a href="/churches">Churches</a></li>
           </ul>
           <ul className="side-nav" id="mobile-demo">
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/events">Events</Link></li>
-            <li><Link to="/churches">Churches</Link></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/gatherings">Gatherings</a></li>
+            <li><a href="/sg">Small Groups</a></li>
+            <li><a href="/churches">Churches</a></li>
           </ul>
         </div>
       </nav>

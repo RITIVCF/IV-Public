@@ -8,7 +8,7 @@ export default class Church extends Component {
   }
 
   getContacts(){
-    return Contacts.find({_id:{$in: this.props.ch.contacts}}).fetch();
+    return Meteor.users.find({_id:{$in: this.props.ch.contacts}}).fetch();
   }
 
   render() {

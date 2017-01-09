@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
 export default class WhyWeDo extends React.Component {
   render() {
