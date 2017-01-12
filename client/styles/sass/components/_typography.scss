@@ -18,13 +18,15 @@ html{
     font-size: 15px;
   }
 
-  font-family: "Roboto", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
-  color: $off-black;
+  color: #7c8081;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	line-height: 1.1;
+  text-transform: uppercase;
+  color: $secondary-color;
 }
 
 // Header Styles
