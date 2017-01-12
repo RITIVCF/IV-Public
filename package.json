@@ -20,12 +20,9 @@
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-pure-render-mixin": "^15.4.2",
     "react-dom": "^15.4.2",
-<<<<<<< HEAD
     "react-loading": "0.0.9",
     "react-mounter": "^1.2.0",
-=======
     "react-masonry-layout": "^0.2.3",
->>>>>>> caleb
     "react-router": "^3.0.0",
     "react-sticky": "^5.0.5"
   }
