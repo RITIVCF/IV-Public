@@ -3,6 +3,7 @@ import React from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import EventDay from './EventDay.jsx';
 import SmallGroups from './SmallGroups.jsx';
+import Conference from './Conference.jsx';
 import moment from "moment";
 
 
@@ -43,7 +44,8 @@ export default class WeekView extends TrackerReact(React.Component) {
   }
 
   getConferences(){
-    return Events.find({$and:[{tags: "Conference"}, {start: {$gt: new moment(new Date().toISOString())._d}}]})
+    //return Events.find({$and:[{tags: "Conference"}, {start: {$gt: new moment(new Date().toISOString())._d}}]}).fetch();
+    return Events.find({tags: "Conference", start: {$gt: new moment(new Date().toISOString())._d}}).fetch();
   }
 
   render() {
@@ -81,10 +83,13 @@ export default class WeekView extends TrackerReact(React.Component) {
           <h2>Conferences</h2>
         </div>
         <div className="wrow WeekContent">
-          {this.state.subscription.Events.ready()?this.getConferences().length==0?this.getConferences().map( (event)=>{
-            return <div key={event._id}>{event.name}<br/>{event.description}<br/>
-            {monthNames[event.start.getMonth()]} {event.start.getDate()} - {event.end.getMonth()!=event.start.getMonth()?monthNames[event.end.getMonth()]+" ":""} {event.end.getDate()}</div>
-        }):<p style={{textAlign: "center"}}>No Upcoming Conferences</p>:false}
+          <div className="container">
+            <div className="container">
+              {this.state.subscription.Events.ready()?this.getConferences().length!=0?this.getConferences().map( (event)=>{
+                return <Conference key={event._id} ev={event} />
+              }):<p style={{textAlign: "center"}}>No Upcoming Conferences</p>:false}
+            </div>
+          </div>
         </div>
 
       </section>

@@ -15,13 +15,13 @@ export default class Navigation extends React.Component {
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><a href="/about">About</a></li>
             <li><a href="/gatherings">Gatherings</a></li>
-            <li><a href="/sg">Small Groups</a></li>
+            {/*}<li><a href="/sg">Small Groups</a></li>*/}
             <li><a href="/churches">Churches</a></li>
           </ul>
           <ul className="side-nav" id="mobile-demo">
             <li><a href="/about">About</a></li>
             <li><a href="/gatherings">Gatherings</a></li>
-            <li><a href="/sg">Small Groups</a></li>
+            {/*}<li><a href="/sg">Small Groups</a></li>*/}
             <li><a href="/churches">Churches</a></li>
           </ul>
         </div>

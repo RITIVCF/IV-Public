@@ -331,6 +331,10 @@ $grey: (
   "darken-4":   #212121
 );
 
+$ivy-blue: (
+  "base": #1A3D6D
+);
+
 $shades: (
   "black":        #000000,
   "white":        #FFFFFF,
@@ -346,6 +350,7 @@ $colors: (
   "indigo": $indigo,
   "blue": $blue,
   "light-blue": $light-blue,
+  "ivy-blue": $ivy-blue,
   "cyan": $cyan,
   "teal": $teal,
   "green": $green,
@@ -409,4 +414,3 @@ $colors: (
   @warn "Unknown `#{name}` in $colors.";
   @return null;
 }
-

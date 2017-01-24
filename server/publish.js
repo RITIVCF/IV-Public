@@ -1,11 +1,14 @@
 import { Accounts } from 'meteor/accounts-base';
-var remote = new DDP.connect("http://localhost:3000/");
-// if(process.env.NODE_ENV=="development"){
-//     var remote = new DDP.connect("http://ivy.rit.edu:3010/");
-// }
-// else {
-//   var remote = new DDP.connect("http://ivy.rit.edu/");
-// }
+
+if(process.env.NODE_ENV=="development"){
+  var remote = new DDP.connect("http://localhost:3000/");
+}
+else if(process.env.NODE_ENV=="ivystaging"){
+  var remote = new DDP.connect("http://ivy.rit.edu:3010/");
+}
+else {
+  var remote = new DDP.connect("http://ivy.rit.edu/");
+}
 //Ethnicities = new Mongo.Collection("ethnicities");
 Events = new Mongo.Collection("events", remote);
 Contacts = new Mongo.Collection("contacts", remote);
