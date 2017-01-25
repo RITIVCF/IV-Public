@@ -20,10 +20,11 @@
   display: inline;
   width: 100%;
   overflow: hidden;
+  font-size: 2em;
+  font-family: 'Lobster';
   > span {
     position: absolute;
     opacity: 0;
-    overflow: hidden;
     -webkit-animation: rotateWords 12s linear infinite 0s;
     -ms-animation: rotateWords 12s linear infinite 0s;
     animation: rotateWords 12s linear infinite 0s;

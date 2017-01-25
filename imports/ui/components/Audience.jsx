@@ -7,22 +7,23 @@ export default class Audience extends React.Component {
       <section id="Audience">
         <div className="container row">
           <h1>Become a Part</h1>
-          <h3><div id="Crowd" className="col s4 m4 l4">
-            Are you looking for<br />
+          <div id="Crowd" className="col s8 m4 l4">
+            <h3>Looking for</h3>
             <div className="rwords">
-              <span>love?</span>
-              <span>purpose?</span>
-              <span>success?</span>
-              <span>community?</span>
-            </div>
-          </div></h3>
-          <div className="col s4 m4 l4">
+              <span>Love?</span>
+              <span>Purpose?</span>
+              <span>Success?</span>
+              <span>Community?</span>
+            </div><br />
+            more text
+          </div>
+          <div className="col s8 m4 l4">
             <h3>Become a Member</h3>
             Growth is most effective when rooted in community.
           </div>
-          <div className="col s4 m4 l4">
+          <div className="col s8 m4 l4">
             <h3>Get Involved</h3>
-            As a witnessing community, we strive to bring Jesus to the students of RIT. We rely on the passion, gifts, and talents of each of our members in order to thrive. <a href="contact">Find out</a> what your role is in making our vision a reality!
+            As a witnessing community, we strive to bring Jesus to the students of RIT. We rely on the passion, gifts, and talents of each of our members in order to thrive. <a href="contact">Discover</a> what your role is in making our vision a reality!
           </div>
         </div>
         {/*<div className="container row">
