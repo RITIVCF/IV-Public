@@ -1,0 +1,105 @@
+@mixin box-shadow-2($a1, $a2) {
+  -moz-box-shadow: $a1, $a2;
+  -webkit-box-shadow: $a1, $a2;
+  box-shadow: $a1, $a2;
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+.WhyWeDo {
+  display: block;
+  position: relative;
+  padding: 100px 0 0 0;
+
+  .band {
+    height: 300px;
+    overflow: hidden;
+    > span {
+      display: block;
+      position: absolute;
+      top: 0; bottom: 0;
+      right: 0; left: 0;
+      @include box-shadow-2(inset 0 16px 8px -8px rgba(0,0,0,0.3), inset 0 -16px 8px -8px rgba(0,0,0,0.3));
+    }
+  }
+
+  .band:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    top: -50%;
+    left: 0;
+    z-index: -50;
+    background-attachment: scroll;
+  }
+
+
+  .band:nth-of-type(odd) {
+    @include transform(skewY(5deg));
+  }
+  .band:nth-of-type(even) {
+    @include transform(skewY(-5deg));
+  }
+  .band:nth-of-type(odd):before {
+    @include transform(skewY(-5deg));
+  }
+  .band:nth-of-type(even):before {
+    @include transform(skewY(5deg));
+  }
+
+  > section {
+    height: 250px;
+    padding: 0 50px;
+  }
+  > section:nth-of-type(even) {
+    padding-left: 60%;
+    text-align: right;
+  }
+  > section:nth-of-type(odd) {
+    padding-right: 60%;
+  }
+
+}
+
+.LargeGroup:before {
+  background-image: url("/images/largegroup_1.jpg");
+  //background-position: 0 0;
+  background-size: cover;
+}
+
+.SmallGroups:before {
+  background-image: url("/images/basileiacrowd.jpg");
+  //background-position: 0 -100px;
+  background-size: cover;
+}
+
+.Prayer:before {
+  background-image: url("/images/basileiaworship.jpg");
+  //background-position: 0 -100px;
+  background-size: cover;
+}
+
+.SocialEvents:before {
+  background-image: url("/images/bbqfellowship.jpg");
+  //background-position: 0 -200px;
+  background-size: cover;
+}
+
+.Conferences:before {
+  background-image: url("/images/basileiachapter.jpg");
+  //background-position: 0 -100px;
+  background-size: cover;
+}
+
+.Churches:before {
+  background-image: url("/images/alextree.jpg");
+  //background-position: 0 0;
+  background-size: cover;
+}

@@ -1,0 +1,51 @@
+
+#Audience {
+  height: auto;
+  width: 100%;
+  background-image: url("/images/dark-tl.svg"), url("/images/dark-tr.svg");
+  background-position: top left, top right;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 25rem, 25rem;
+  overflow: auto;
+  > a {
+    display: inline-block;
+  }
+}
+
+/*#Crowd {
+  font-size: 2rem;
+}*/
+
+.rwords {
+  display: inline;
+  width: 100%;
+  overflow: hidden;
+  font-size: 2em;
+  font-family: 'Lobster';
+  > span {
+    position: absolute;
+    opacity: 0;
+    -webkit-animation: rotateWords 12s linear infinite 0s;
+    -ms-animation: rotateWords 12s linear infinite 0s;
+    animation: rotateWords 12s linear infinite 0s;
+
+  }
+}
+
+@for $i from 2 through 4 {
+  .rwords > span:nth-child(#{$i}) {
+    animation-delay: 3s * ($i - 1);
+    -webkit-animation-delay: 3s * ($i - 1);
+    -ms-animation-delay: 3s * ($i - 1);
+  }
+}
+
+@keyframes rotateWords {
+  0% { opacity: 0; }
+  2% { opacity: 0; -webkit-transform: translateY(-1em); }
+  5% { opacity: 1; -webkit-transform: translateY(0px);}
+  25% { opacity: 1; -webkit-transform: translateY(0px); }
+  28% { opacity: 0; -webkit-transform: translateY(1em); }
+  80% { opacity: 0; }
+  100% { opacity: 0; }
+}
