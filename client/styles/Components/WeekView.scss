@@ -19,18 +19,29 @@
   }
 }
 
+.clearfix {
+  display: block;
+  clear: both;
+}
+
+.wdate:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+
 .WeekHeader {
   text-align: center;
   text-transform: uppercase;
   background-color: #1A3D6D;
   color: #FCB816;
   text-align: center;
-  > h2 {
-    display: inline-block;
+  > .wdate > h2 {
+    display: inline !important;
   }
   > div {
-    height: 2rem;
-    line-height: 2rem;
+    //line-height: 2rem;
   }
 }
 

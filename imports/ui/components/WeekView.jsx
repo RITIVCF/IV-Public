@@ -56,12 +56,13 @@ export default class WeekView extends TrackerReact(React.Component) {
     return (
       <section id="WeekView">
         <div className="wrow WeekHeader">
-          <a onClick={this.prev.bind(this)}>
-          <i className="fa fa-chevron-left"></i></a>
-          <h2>{monthNames[this.state.start.getMonth()]} {this.state.start.getDate()} -
-            {end.getMonth()!=this.state.start.getMonth()?monthNames[end.getMonth()]+" ":""}{end.getDate()}</h2>
-          <a onClick={this.next.bind(this)}>
-          <i className="fa fa-chevron-right"></i></a><br />
+          <div className="wdate container s12">
+            <a onClick={this.prev.bind(this)} className="btn-floating btn-small waves-effect waves-light gold left"><i className="material-icons">skip_previous</i></a>
+            <h2>{monthNames[this.state.start.getMonth()]} {this.state.start.getDate()} -
+              {end.getMonth()!=this.state.start.getMonth()?monthNames[end.getMonth()]+" ":""}{end.getDate()}</h2>
+            <a onClick={this.next.bind(this)} className="btn-floating btn-small waves-effect waves-light gold right"><i className="material-icons">skip_next</i></a>
+            <div className="clearfix"></div>
+          </div>
           <div className="wcol">Monday</div>
           <div className="wcol">Tuesday</div>
           <div className="wcol">Wednesday</div>
