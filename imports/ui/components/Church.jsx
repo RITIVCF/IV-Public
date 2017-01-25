@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
+import ChurchContact from './ChurchContact';
 
 export default class Church extends Component {
-  openEvent(event){
-    event.preventDefault();
-    // opens event in popup
-
-  }
-
   getContacts(){
     return Meteor.users.find({_id:{$in: this.props.ch.contacts}}).fetch();
   }
@@ -22,7 +17,7 @@ export default class Church extends Component {
         })}
         <p>Contacts:</p>
         {this.getContacts().map((contact)=>{
-          return <div key={contact._id}><p>{contact.name}<br />{contact.email}</p></div>
+          return <ChurchContact key={contact._id} contact={contact} chid={this.props.ch._id} />
         })}
         {console.log(this.props.ch)}
       </div>

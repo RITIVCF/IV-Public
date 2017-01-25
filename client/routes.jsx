@@ -11,6 +11,7 @@ import About from '../imports/ui/pages/About.jsx';
 import Events from '../imports/ui/pages/Events.jsx';
 import Churches from '../imports/ui/pages/Churches.jsx';
 import SGSignUp from '../imports/ui/pages/SgSignUp.jsx';
+import ChurchSignUp from '../imports/ui/pages/ChurchSignUp.jsx';
 import Prayer from '../imports/ui/pages/Prayer.jsx';
 import Contact from '../imports/ui/pages/Contact.jsx';
 import NotFound from '../imports/ui/pages/NotFound.jsx';
@@ -68,6 +69,14 @@ FlowRouter.route('/sgsignup/:sgid',{
 	action(params) {
 		mount(MainLayout, {
 			content: (<SGSignUp sgid={params.sgid} />)
+		})
+	}
+});
+
+FlowRouter.route('/churchsignup/:chid/:uid',{
+	action(params) {
+		mount(MainLayout, {
+			content: (<ChurchSignUp chid={params.chid} uid={params.uid} />)
 		})
 	}
 });

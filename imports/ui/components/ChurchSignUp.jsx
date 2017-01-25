@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 
-export default class SgSignUp extends Component {
+export default class ChurchSignUp extends Component {
   constructor(props){
     super(props);
-    var sg = Groups.findOne(props.sgid);
-    var ldr = Meteor.users.findOne(sg.leader);
+    var ch = Churches.findOne(props.chid);
+    var user = Meteor.users.findOne(props.uid);
     this.state ={
-      smallGroup: sg,
-      defaultMessage: "Hi "+ldr.name+"! I would like to learn more about joining the "
-      + sg.name +" small group. "
+      defaultMessage: "Hi "+user.name+"! I would like to receive a ride to " + ch.name+"."
     };
   }
 
@@ -20,18 +18,19 @@ export default class SgSignUp extends Component {
     event.preventDefault();
     //console.log(this.refs.email.value, this.refs.name.value, this.refs.message.value);
     var refs = this.refs;
-    Meteor.call("sgEmail",refs.name.value.trim(),refs.email.value.trim(),refs.message.value.trim(), this.props.sgid, function(error){
+    Meteor.call("churchEmail",refs.name.value.trim(),refs.email.value.trim(),refs.message.value.trim(), this.props.uid, this.props.chid, function(error){
       if(error){
         Materialize.toast("Sorry, something went wrong. Please try again.",4000);
+        console.log(error);
       }
       else{
         Materialize.toast("Success!", 4000);
         setTimeout(function(){
-          FlowRouter.go("/gatherings");
+          FlowRouter.go("/churches");
         },1000);
       }
     });
-    Materialize.toast("Thanks for your interest. Please wait while we confirm your submission.",4000);
+    Materialize.toast("Thanks letting us know. Please wait while we confirm your submission.", 4000);
   }
 
   render() {
