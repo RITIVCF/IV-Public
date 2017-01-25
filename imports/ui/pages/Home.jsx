@@ -6,6 +6,7 @@ import VisionStory from '../components/VisionStory.jsx';
 import Vision from '../components/Vision.jsx';
 import WhyWeDo from '../components/WhyWeDo.jsx';
 import NewsCTA from '../components/NewsCTA.jsx';
+import FontSpace from '../components/FontSpace.jsx';
 
 function Home() {
   $('.parallax').parallax();
@@ -15,7 +16,6 @@ function Home() {
       <Audience />
       <Vision />
       <WhyWeDo />
-      <NewsCTA />
     </div>
   );
 }

@@ -33,11 +33,11 @@
     content: "";
     position: absolute;
     width: 100%;
-    height: 1000px;
-    top: -600px;
+    height: 200%;
+    top: -50%;
     left: 0;
-    z-index: -2;
-    background-attachment: fixed;
+    z-index: -50;
+    background-attachment: scroll;
   }
 
 
@@ -59,47 +59,47 @@
     padding: 0 50px;
   }
   > section:nth-of-type(even) {
-    padding-left: 30rem;
+    padding-left: 60%;
     text-align: right;
   }
   > section:nth-of-type(odd) {
-    padding-right: 30rem;
+    padding-right: 60%;
   }
 
 }
 
 .LargeGroup:before {
   background-image: url("/images/largegroup_1.jpg");
-  background-position: 0 -200px;
+  //background-position: 0 0;
   background-size: cover;
 }
 
 .SmallGroups:before {
   background-image: url("/images/basileiacrowd.jpg");
-  background-position: 0 -100px;
+  //background-position: 0 -100px;
   background-size: cover;
 }
 
 .Prayer:before {
   background-image: url("/images/basileiaworship.jpg");
-  background-position: 0 -100px;
+  //background-position: 0 -100px;
   background-size: cover;
 }
 
 .SocialEvents:before {
   background-image: url("/images/bbqfellowship.jpg");
-  background-position: 0 -200px;
+  //background-position: 0 -200px;
   background-size: cover;
 }
 
 .Conferences:before {
   background-image: url("/images/basileiachapter.jpg");
-  background-position: 0 -100px;
+  //background-position: 0 -100px;
   background-size: cover;
 }
 
 .Churches:before {
-  background-image: url("/images/bbqteamjesus.jpg");
-  background-position: 0 0;
+  background-image: url("/images/alextree.jpg");
+  //background-position: 0 0;
   background-size: cover;
 }
