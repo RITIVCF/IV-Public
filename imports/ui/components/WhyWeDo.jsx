@@ -6,7 +6,7 @@ export default class WhyWeDo extends React.Component {
   render() {
     return (
       <section className="WhyWeDo">
-        <div className="band LargeGroup"><span></span></div>
+        <div className="band"><span><img src="/images/largegroup_1.jpg" /></span></div>
         <section>
           <h2>Large Group</h2>
           The whole chapter gathers for worship and to discuss about topics relevant
@@ -15,7 +15,9 @@ export default class WhyWeDo extends React.Component {
           events which range from movie nights to rock climbing at the red barn. Come
           for a great night of fellowship!
         </section>
-        <div className="band SmallGroups"><span></span></div>
+        <div className="band"><span>
+          <img src="/images/basileiacrowd.jpg" />
+        </span></div>
         <section>
           <h2>Small Groups</h2>
           Small groups at RIT create an opportunity for us to grow in our
@@ -26,12 +28,14 @@ export default class WhyWeDo extends React.Component {
           fantastic way to connect with a group of people who are all invested
           in growing together.
         </section>
-        <div className="band Prayer"><span></span></div>
+        <div className="band"><span>
+          <img src="/images/basileiaworship.jpg"></img>
+        </span></div>
         <section>
           <h2>Prayer</h2>
           Do you like talking with your best friend? We do, too. That's why we
           have prayer meetings every Sunday evening. We have fun talking with
-          God, experimenting with different ways to do so, and learning and growing 
+          God, experimenting with different ways to do so, and learning and growing
           from what He says in our conversations. Hang out with us and your best
           friend, and if God isn't your best friend, come and get to know Him
           and us better together.
