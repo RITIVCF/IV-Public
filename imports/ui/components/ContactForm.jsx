@@ -9,6 +9,10 @@ export default class ContactForm extends React.Component {
       }
   }
 
+  componentDidMount(){
+    Materialize.updateTextFields();
+  }
+
   submit(event){
     event.preventDefault();
     let refs = this.refs;
@@ -42,10 +46,22 @@ export default class ContactForm extends React.Component {
     return (
       <section id="ContactForm" className="container row">
         <form onSubmit={this.submit.bind(this)}>
-          <input type="text" ref="name" placeholder="Name" required />
-          <input type="email" ref="email" placeholder="Email" required />
-          <input type="text" ref="subj" placeholder="Subject" required />
-          <textarea className="materialize-textarea" ref="message" placeholder="Hi I'm..."></textarea>
+          <div className="input-field col s12">
+            <input type="text" ref="name" id="name" required />
+            <label htmlFor="name">Name</label>
+          </div>
+          <div className="input-field col s12">
+            <input type="email" ref="email" id="email" required />
+            <label htmlFor="email">Email</label>
+          </div>
+          <div className="input-field col s12">
+            <input type="text" ref="subj" id="subj" required />
+            <label htmlFor="subj">Subject</label>
+          </div>
+          <div className="input-field col s12">
+            <textarea className="materialize-textarea" ref="message" id="message" placeholder="Hi I'm..." />
+            <label htmlFor="message">Message</label>
+          </div>
           <input type="submit" className="btn" name="sendcontact" value="Send" />
         </form>
       </section>

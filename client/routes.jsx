@@ -17,6 +17,11 @@ import Contact from '../imports/ui/pages/Contact.jsx';
 import NotFound from '../imports/ui/pages/NotFound.jsx';
 
 
+function scrollTop(){
+	window.scrollTo(0, 0);
+}
+FlowRouter.triggers.enter([scrollTop]);
+
 FlowRouter.route('/',{
 	action() {
 		mount(MainLayout, {

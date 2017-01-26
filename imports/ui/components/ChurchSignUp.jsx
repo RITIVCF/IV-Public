@@ -41,15 +41,15 @@ export default class ChurchSignUp extends Component {
         <div className="row">
           <div className="col s12">
             <form onSubmit={this.submit.bind(this)}>
-              <div className="input-field">
+              <div className="input-field col s12">
                 <input type="text" ref="name" id="signupname" className="validate" required />
                 <label htmlFor="signupname">Name</label>
               </div>
-              <div className="input-field">
+              <div className="input-field col s12">
                 <input type="email" ref="email" id="signupemail" className="validate" required />
                 <label htmlFor="signupemail">Email</label>
               </div>
-              <div className="input-field">
+              <div className="input-field col s12">
                 <textarea ref="message" id="sgmessage" className="materialize-textarea" defaultValue={this.state.defaultMessage} />
                 <label id="sgmessage">Message</label>
               </div>

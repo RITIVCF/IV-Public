@@ -12,7 +12,8 @@ else {
 //Ethnicities = new Mongo.Collection("ethnicities");
 Events = new Mongo.Collection("events", remote);
 Contacts = new Mongo.Collection("contacts", remote);
-//Tickets = new Mongo.Collection("tickets");
+Counters = new Mongo.Collection("counters", remote);
+Tickets = new Mongo.Collection("tickets", remote);
 Groups = new Mongo.Collection("groups",remote);
 Churches = new Mongo.Collection('churches',remote);
 Bios = new Mongo.Collection('bios');
@@ -31,6 +32,10 @@ remote.subscribe('publishedEvents', function(){
 
 remote.subscribe('activeChurches', function(){
   return Churches.find();
+});
+
+remote.subscribe("allCounters", function(){
+  return Counters.find();
 });
 
 // remote.subscribe('allContacts', function(){
@@ -129,6 +134,14 @@ Meteor.publish("activeChurches", function(){
 
 Meteor.publish("allChurches", function(){
   return Churches.find();
+});
+
+Meteor.publish("counters", function(){
+  remote.subscribe("allCounters", function(){
+    return Counters.find();
+  });
+  return Counters.find();
+
 });
 
 
