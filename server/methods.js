@@ -35,5 +35,23 @@ Meteor.methods({
       + "<p>You can reply directly to this email to respond to "+name+".</p>"
       + "<br/><br/><p>Thank you</p><p>Ivy Information System</p>"
     });
+  },
+  submitPrayerRequest(name, email, message){
+    ret = Counters.findOne("ticketID");
+    Counters.update({_id:"ticketID"}, {$inc: {seq: 1}});
+    Tickets.insert({
+      ticketnum: ret.seq,
+      subject: "Prayer Request: "+name,
+      description: message,
+      assignedgroup: "",
+      assigneduser: "",
+      customer: "",  // Affected, or "customer" user
+      status: "Open",
+      type:"Prayer",
+      activities: [],
+      createdAt: new Date(),
+      submittedby: "Ivy System",
+      lastUpdated: new Date()
+    });
   }
 });

@@ -10,7 +10,8 @@ export default class ChurchContact extends Component {
     return (
       <p>
         {contact.name}<br/>
-      <a href="#" onClick={this.askRide.bind(this)}>{contact.emails[0].address}</a>
+      <a href={"/churchsignup/"+this.props.chid+"/"+this.props.contact._id}
+        >{contact.emails[0].address}</a>
       </p>
     )
   }
