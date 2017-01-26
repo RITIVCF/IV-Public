@@ -14,7 +14,7 @@ export default class SG extends Component {
     var ldr = this.getLeader();
     return (
       <div className="ChurchBox">
-        <div className="z-depth-1">
+        <div className="card">
           <h3>{this.props.sg.name}</h3>
           <p><b>Leader: </b>{ldr.name}</p>
           <p>Email: {ldr.emails[0].address}</p>
