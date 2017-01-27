@@ -14,6 +14,7 @@ import SGSignUp from '../imports/ui/pages/SgSignUp.jsx';
 import ChurchSignUp from '../imports/ui/pages/ChurchSignUp.jsx';
 import Prayer from '../imports/ui/pages/Prayer.jsx';
 import Contact from '../imports/ui/pages/Contact.jsx';
+import MemberWrapper from '../imports/ui/pages/Member.jsx';
 import NotFound from '../imports/ui/pages/NotFound.jsx';
 
 
@@ -66,6 +67,14 @@ FlowRouter.route('/contact',{
 	action() {
 		mount(MainLayout, {
 			content: (<Contact />)
+		})
+	}
+});
+
+FlowRouter.route('/becomeamember',{
+	action() {
+		mount(MainLayout, {
+			content: (<MemberWrapper />)
 		})
 	}
 });

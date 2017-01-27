@@ -113,6 +113,9 @@
   background-size: cover;
   background-position-x: 50%;
   background-position-y: 30px;
+  @media only screen and (min-width : 992px){
+    background-position-y: 0px;
+  }
 }
 
 .Churches:before {

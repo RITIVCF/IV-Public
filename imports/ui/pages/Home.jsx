@@ -16,6 +16,7 @@ function Home() {
       <Audience />
       <Vision />
       <WhyWeDo />
+      <NewsCTA />
     </div>
   );
 }
