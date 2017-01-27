@@ -2,6 +2,7 @@ import React from 'react';
 // import { Link } from 'react-router';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import SG from './SG.jsx';
+import LoaderCircle from './LoaderCircle.jsx';
 
 export default class SmallGroups extends TrackerReact(React.Component) {
   constructor() {
@@ -26,16 +27,19 @@ export default class SmallGroups extends TrackerReact(React.Component) {
   }
 
   render() {
-    if(!(this.state.subscription.SmallGroups.ready()&&this.state.subscription.Contacts.ready())){
-      return false;
-    }
+    let ready= this.state.subscription.SmallGroups.ready()&&this.state.subscription.Contacts.ready();
     return (
-      <div id="SmallGroups" className="wrow WeekContent">
-        {this.getSGs().map((sg)=>{
-          return <SG key={sg._id} sg={sg} />
-        })}
-        {/*}<br/> <p>See calendar for next gathering.</p>*/}
-      </div>
+      <section>
+        <div className="wrow WeekHeader">
+          <h2>Small Groups</h2>
+        </div>
+        <div id="SmallGroups" className="wrow WeekContent">
+          {ready?this.getSGs().length>0?this.getSGs().map((sg)=>{
+            return <SG key={sg._id} sg={sg} />
+          }):<p style={{textAlign: "center"}}>No Small Groups</p>:<LoaderCircle />}
+          {/*}<br/> <p>See calendar for next gathering.</p>*/}
+        </div>
+      </section>
     );
   }
 }

@@ -20,9 +20,15 @@
   display: inline;
   width: 100%;
   overflow: hidden;
-  font-size: 2em;
-  font-family: 'Lobster';
+  font-size: 1em;
+  padding-left: .4em;
+  //font-family: 'Lobster';
   > span {
+    > i {
+      font-family: 'Homestead';
+      font-weight: bold;
+      color: #1a3d6d;
+    }
     position: absolute;
     opacity: 0;
     -webkit-animation: rotateWords 12s linear infinite 0s;
