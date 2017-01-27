@@ -1,11 +1,12 @@
 import React from 'react';
+import Member from '../components/Member.jsx';
 
-function Register() {
+function MemberWrapper() {
   return (
     <div className='Register'>
-      <h1>Register</h1>
+      <Member />
     </div>
   );
 }
 
-export default About;
+export default MemberWrapper;

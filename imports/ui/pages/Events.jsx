@@ -1,10 +1,10 @@
 import React from 'react';
-import WeekView from '../components/WeekView.jsx';
+import Gatherings from '../components/Gatherings.jsx';
 
 function Events() {
   return (
     <div>
-      <WeekView />
+      <Gatherings />
     </div>
   );
 }
