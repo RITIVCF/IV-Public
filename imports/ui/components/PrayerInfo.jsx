@@ -19,7 +19,6 @@ export default class PrayerInfo extends React.Component {
         </div>
         <div className="col s12">
           <p>See the <a href="/gatherings">gatherings</a> page for the next prayer meeting.</p>
-          <p>We are looking for a woman to lead our women's prayer group.</p>
         </div>
       </section>
     );

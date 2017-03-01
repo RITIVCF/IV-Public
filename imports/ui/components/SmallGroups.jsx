@@ -33,7 +33,7 @@ export default class SmallGroups extends TrackerReact(React.Component) {
         <div className="wrow WeekHeader">
           <h2>Small Groups</h2>
         </div>
-        <div id="SmallGroups" className="wrow WeekContent">
+        <div id="SmallGroups" className="row WeekContent">
           {ready?this.getSGs().length>0?this.getSGs().map((sg)=>{
             return <SG key={sg._id} sg={sg} />
           }):<p style={{textAlign: "center"}}>No Small Groups</p>:<LoaderCircle />}
