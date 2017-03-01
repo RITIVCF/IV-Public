@@ -27,9 +27,11 @@ export default class ChurchList extends TrackerReact(React.Component) {
     }
     return (
       <section id="Churches">
-        {this.getChurches().map((church)=>{
-          return <Church key={church._id} ch={church} />
-        })}
+        <div className="row">
+          {this.getChurches().map((church)=>{
+            return <Church key={church._id} ch={church} />
+          })}
+        </div>
       </section>
     );
   }
