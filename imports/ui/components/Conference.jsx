@@ -15,7 +15,7 @@ export default class Conference extends Component {
       <div className="card ivy-blue white-text">
         <div className="card-content">
           <span className="card-title" style={{lineHeight: "1"}}>{event.name}</span>
-          <p style={{whiteSpace: "pre-wrap"}}>{event.description}</p>
+          <p style={{whiteSpace: "pre-wrap"}}>{event.description}</p><br/>
           <p>{monthNames[event.start.getMonth()]} {event.start.getDate()} -
             {event.end.getMonth()!=event.start.getMonth()?monthNames[event.end.getMonth()]+" ":""} {event.end.getDate()}</p>
           <p>{event.location}</p>

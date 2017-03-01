@@ -12,7 +12,7 @@ export default class Conferences extends TrackerReact(React.Component) {
 
   getConferences(){
     //return Events.find({$and:[{tags: "Conference"}, {start: {$gt: new moment(new Date().toISOString())._d}}]}).fetch();
-    return Events.find({tags: "Conference", start: {$gt: new moment(new Date().toISOString())._d}}).fetch();
+    return Events.find({tags: "Conference", start: {$gt: new moment(new Date().toISOString())._d}},{sort: {start: 1}}).fetch();
   }
 
   render() {
