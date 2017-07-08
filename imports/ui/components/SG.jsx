@@ -7,7 +7,7 @@ export default class SG extends Component {
   }
 
   getLeader(){
-    return Meteor.users.findOne(this.props.sg.leader);
+    return Meteor.users.findOne(this.props.sg.leader[0]);
   }
 
   render() {

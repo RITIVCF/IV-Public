@@ -4,7 +4,7 @@ export default class SgSignUp extends Component {
   constructor(props){
     super(props);
     var sg = Groups.findOne(props.sgid);
-    var ldr = Meteor.users.findOne(sg.leader);
+    var ldr = Meteor.users.findOne(sg.leader[0]);
     this.state ={
       smallGroup: sg,
       defaultMessage: "Hi "+ldr.name+"! I would like to learn more about joining the "
