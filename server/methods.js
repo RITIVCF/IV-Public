@@ -1,9 +1,9 @@
 Meteor.methods({
   sgEmail(name, email, message, sgid){
     var sg = Groups.findOne(sgid);
-    var leader = Meteor.users.findOne(sg.leader);
+    var leader = Meteor.users.findOne(sg.leader[0]);
     Email.send({
-      to: [leader.emails[0].address,"bobby.picciotti@gmail.com"],
+      to: [leader.emails[0].address,"drs8047@rit.edu"],
       from: "Ivy Information System <ivcf@rit.edu>",
       replyTo: email,
       subject: "New "+ sg.name + " Interest",
