@@ -111,7 +111,7 @@ Meteor.publish("prayerEvents", function(){
 
 Meteor.publish("publishedEvents", function(){
 
-  return Events.find({published: true});
+  return Events.find();
 });
 
 Meteor.publish("thisuser", function(){
