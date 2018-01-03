@@ -20,6 +20,8 @@
   .band {
     height: 300px;
     overflow: hidden;
+		position: relative;
+		
     > span {
       display: block;
       position: absolute;
