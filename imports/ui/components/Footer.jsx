@@ -46,7 +46,7 @@ export default class Footer extends React.Component {
             </a></li>
           </ul>
           <br />
-          Made with love, InterVarsity Christian Fellowship at RIT © 2016
+          Made with love, InterVarsity Christian Fellowship at RIT © 2018
         </div>
       </div>
     </footer>
