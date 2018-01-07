@@ -63,6 +63,15 @@ FlowRouter.route('/prayer',{
 	}
 });
 
+FlowRouter.route('/prayerwall/:requestID', {
+	action() {
+		Meteor.call("publishPrayerRequest",{requestID: params.requestID});
+		mount(MainLayout, {
+			content: (<div></div>)
+		})
+	}
+});
+
 FlowRouter.route('/contact',{
 	action() {
 		mount(MainLayout, {

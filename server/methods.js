@@ -1,3 +1,5 @@
+import { remote } from '/server/publish.js';
+
 Meteor.methods({
   sgEmail(name, email, message, sgid){
     var sg = Groups.findOne(sgid);
@@ -36,22 +38,13 @@ Meteor.methods({
       + "<br/><br/><p>Thank you</p><p>Ivy Information System</p>"
     });
   },
-  submitPrayerRequest(name, email, message){
-    ret = Counters.findOne("ticketID");
-    Counters.update({_id:"ticketID"}, {$inc: {seq: 1}});
-    Tickets.insert({
-      ticketnum: ret.seq,
-      subject: "Prayer Request: "+name,
-      description: message,
-      assignedgroup: "",
-      assigneduser: "",
-      customer: "",  // Affected, or "customer" user
-      status: "Open",
-      type:"Prayer",
-      activities: [],
-      createdAt: new Date(),
-      submittedby: "Ivy System",
-      lastUpdated: new Date()
-    });
+  submitPrayerRequest({name=null, email, content, audience="Leaders"}){
+    if (audience == "") {
+      audience == "Leaders";
+    }
+    return remote.call("submitPrayerRequest",{name, email, content, audience});
+  },
+  publishPrayerRequest({ requestID }){
+    return remote.call("publishPrayerRequest", { requestID });
   }
 });
