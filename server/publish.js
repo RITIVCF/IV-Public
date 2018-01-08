@@ -95,10 +95,6 @@ Meteor.publish("largeGroups", function(){
 
 
 Meteor.publish("prayerEvents", function(){
-  var weeksahead = Options.findOne({_id:"prayerweeksahead"}).val;
-  remote.subscribe("publishedEvents", function(){
-    return Events.find();
-  });
   const options = {
     fields: {
       name: 1,
@@ -110,8 +106,8 @@ Meteor.publish("prayerEvents", function(){
       tags: 1
      }
   }
-  return Events.find({$and: [{tags: "Prayer"}, {published: true}, {end: {$gt: new Date()}},
-    {start: {$lt: moment().add(weeksahead,"weeks")._d}}]}, options);
+  return Events.find({$and: [{tags: "Prayer"}, {end: {$gt: new Date()}},
+    {start: {$lt: moment().add(1,"weeks")._d}}]}, options);
 })
 
 Meteor.publish("publishedEvents", function(){

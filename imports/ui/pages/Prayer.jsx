@@ -1,12 +1,10 @@
 import React from 'react';
-import PrayerInfo from '../components/PrayerInfo.jsx';
-import PrayerForm from '../components/PrayerForm.jsx';
+import PrayerWall from '../components/PrayerWall.jsx';
 
 function Prayer() {
   return (
     <div>
-      <PrayerInfo />
-      <PrayerForm />
+      <PrayerWall />
     </div>
   );
 }
