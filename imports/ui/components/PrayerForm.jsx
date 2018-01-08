@@ -37,15 +37,12 @@ export default class PrayerForm extends React.Component {
     if(this.state.submitted){
       return(
         <section id="PrayerForm" className="container row">
-          <h1>{"Do you have a prayer request?"}</h1>
           <h2>We will be praying for you!</h2>
-
         </section>
       )
     }
     return (
       <section id="PrayerForm" className="container row">
-        <h1>{"Do you have a prayer request?"}</h1>
         <form onSubmit={this.submit.bind(this)}>
           <div className="input-field col s12">
             <input type="text" ref="name" id="name" required />
