@@ -1,0 +1,11 @@
+.card.prayerform.closed {
+  max-height: 150px;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+  overflow: hidden;
+}
+
+.card.prayerform.open {
+  max-height: 500px;
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
+}

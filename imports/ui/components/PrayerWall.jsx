@@ -31,11 +31,7 @@ export default class PrayerWall extends Component {
     return (
       <div className="container row">
         <div className="col s12 m6 l6">
-          <div className="card">
-            <div className="card-content">
-              <PrayerForm />
-            </div>
-          </div>
+          <PrayerForm />
           <PrayerInfo />
         </div>
         <div className="col s12 m6 l6">
