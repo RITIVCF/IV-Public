@@ -1,5 +1,5 @@
 import React from 'react';
-import PrayerWall from '../components/PrayerWall.jsx';
+import PrayerWall from '/imports/ui/components/PrayerWall.jsx';
 
 function Prayer() {
   return (

@@ -126,10 +126,14 @@ const styles = {
 
 function SuccessMessage() {
   return (
-    <span>
-      Success! Please check your inbox to confirm your email address.
-      We cannot post your request until your email is confirmed.
-    </span>
+    <div className="card">
+      <div className="card-content">
+        <span>
+          Success! Please check your inbox to confirm your email address.
+          We cannot post your request until your email is confirmed.
+        </span>
+      </div>
+    </div>
   );
 }
 
