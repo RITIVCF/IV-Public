@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Switch } from '/imports/ui/materialize';
 import { Audiences as AUDIENCES } from '/imports/api/PrayerRequest';
 
@@ -42,7 +43,7 @@ export default class NewRequestForm extends React.Component {
         this.setState({status: 'submitted'});
       }
     });
-    this.props.onSumbit&&this.props.onSubmit({...this.state});
+    this.props.onSubmit&&this.props.onSubmit({...this.state});
   }
 
   handleAnonymousChange(){
@@ -113,6 +114,10 @@ export default class NewRequestForm extends React.Component {
   }
 }
 
+NewRequestForm.propTypes = {
+  onSubmit: PropTypes.func
+};
+
 function SuccessMessage() {
   return (
     <span>
@@ -125,6 +130,10 @@ function SuccessMessage() {
 function Row({ children }) {
   return (<div className="row">{children}</div>)
 }
+
+Row.propTypes = {
+  children: PropTypes.object
+};
 
 function Audience({ selected, onClick }){
   return (
@@ -150,3 +159,8 @@ function Audience({ selected, onClick }){
     </div>
   )
 }
+
+Audience.propTypes = {
+  selected: PropTypes.string,
+  onClick: PropsTypes.func
+};

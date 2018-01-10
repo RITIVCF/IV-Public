@@ -46,5 +46,8 @@ Meteor.methods({
   },
   publishPrayerRequest({ requestID }){
     return remote.call("publishPrayerRequest", { requestID });
+  },
+  submitPrayerRequestUpdate({ prayerRequestID, content, type }){
+    return remote.call("submitPrayerRequestUpdate", { prayerRequestID, content, type });
   }
 });

@@ -5,6 +5,8 @@ import {mount} from 'react-mounter';
 import {MainLayout} from '../imports/ui/containers/MainLayout.jsx';
 import {SignIn} from '../imports/ui/containers/SignIn.jsx';
 
+import RequestUpdateForm from '/imports/ui/components/PrayerWall/RequestUpdateForm';
+
 //Wrappers
 import Home from '../imports/ui/pages/Home.jsx';
 import About from '../imports/ui/pages/About.jsx';
@@ -67,7 +69,7 @@ FlowRouter.route('/prayerwall/:requestID', {
 	action(params) {
 		Meteor.call("publishPrayerRequest",{requestID: params.requestID});
 		mount(MainLayout, {
-			content: (<div></div>)
+			content: (<div className="container"><RequestUpdateForm requestID={params.requestID} /></div>)
 		})
 	}
 });
