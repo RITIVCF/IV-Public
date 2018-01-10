@@ -1,64 +1,164 @@
 import React from 'react';
-// import { Link } from 'react-router';
+import { Switch } from '/imports/ui/materialize';
+import { Audiences as AUDIENCES } from '/imports/api/PrayerRequest';
 
 export default class PrayerForm extends React.Component {
   constructor(){
     super();
-      this.state = {
-        submitted: false
-      }
+
+    this.defaultState = {
+      status: 'closed',
+      submitted: false,
+      anonymous: false,
+      name: '',
+      email: '',
+      content: '',
+      audience: 'Wall'
+    };
+
+    this.state = {...this.defaultState};
+
+    this.handleRequestFocus = this.handleRequestFocus.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAnonymousChange = this.handleAnonymousChange.bind(this);
+    this.handleTextInputChange = this.handleTextInputChange.bind(this);
+    this.handleAudienceChange = this.handleAudienceChange.bind(this);
   }
 
-  componentDidMount(){
+  componentDidUpdate(){
     Materialize.updateTextFields();
   }
 
-  submit(event){
+  handleRequestFocus(){
+    this.setState({status: 'open'});
+  }
+
+  handleSubmit( event ){
     event.preventDefault();
-    let refs= this.refs;
-    let thiz = this;
-    Meteor.call("submitPrayerRequest",
-      refs.name.value.trim(),
-      refs.email.value.trim(),
-      refs.message.value.trim(),
-      function(error){
-        if(error){
-          Materialize.toast("Sorry, something went wrong. Please try again.",4000);
-          console.log(error);
-        }
-        else{
-          thiz.setState({submitted: true});
-        }
+    Meteor.call("submitPrayerRequest", {...this.state}, (err) => {
+      if (err) {
+        Materialize.toast("Something went wrong. Please try again.",5000);
+      } else {
+        this.setState({status: 'submitted'});
       }
-    );
+    });
+    this.props.onSumbit&&this.props.onSubmit({...this.state});
+  }
+
+  handleAnonymousChange(){
+    this.setState({anonymous: !this.state.anonymous});
+  }
+
+  handleTextInputChange( event ) {
+    let update = {};
+    update[event.target.name] = event.target.value;
+    this.setState({...update});
+  }
+
+  handleAudienceChange( audienceKey ){
+    this.setState({audience: audienceKey});
   }
 
   render() {
-    if(this.state.submitted){
-      return(
-        <section id="PrayerForm" className="container row">
-          <h2>We will be praying for you!</h2>
-        </section>
-      )
+    const { anonymous, name, email, audience, status } = this.state;
+    if (status == "submitted") {
+      return <SuccessMessage />
     }
+    let cardclass = "card prayerform " + status
     return (
-      <section id="PrayerForm" className="container row">
-        <form onSubmit={this.submit.bind(this)}>
-          <div className="input-field col s12">
-            <input type="text" ref="name" id="name" required />
-            <label htmlFor="name">Name</label>
-          </div>
-          <div className="input-field col s12">
-            <input type="email" ref="email" id="email" />
-            <label htmlFor="email">Email (optional)</label>
-          </div>
-          <div className="input-field col s12">
-            <textarea className="materialize-textarea" ref="message" id="message" placeholder="How can we pray for you?" />
-            <label htmlFor="message">Message</label>
-          </div>
-          <input type="submit" className="btn" ref="sendprayer" value="Send" />
-        </form>
-      </section>
+      <div className={cardclass}>
+        <div className="card-content">
+          <form onSubmit={this.handleSubmit}>
+            <div className="row">
+              <div className="input-field col s12">
+                <textarea
+                  id="requestBody"
+                  className="materialize-textarea"
+                  name="content"
+                  onFocus={this.handleRequestFocus}
+                  onChange={this.handleTextInputChange}
+                ></textarea>
+                <label htmlFor="requestBody">New Prayer Request</label>
+              </div>
+            </div>
+            <div>
+              <Row>
+                <Switch
+                  checked={anonymous}
+                  labelOn="Anonymous"
+                  onChange={this.handleAnonymousChange}
+                />
+                <div className="input-field col s12">
+                  <input id="name" type="text" name="name" value={name} onChange={this.handleTextInputChange} disabled={anonymous} />
+                  <label htmlFor="name">Name</label>
+                </div>
+                <div className="input-field col s12">
+                  <input id="email" type="email" name="email" value={email} onChange={this.handleTextInputChange} />
+                  <label htmlFor="email">Email</label>
+                </div>
+                <div className="col s12">
+                  <div className="">Post to</div>
+                  <Audience selected={audience} onClick={this.handleAudienceChange} />
+                </div>
+              </Row>
+              <Row>
+                <div className="col s12">
+                  <button className="btn waves-effect waves-light" type="submit">Submit</button>
+                </div>
+              </Row>
+            </div>
+          </form>
+        </div>
+      </div>
     );
   }
+}
+
+const styles = {
+  open: {
+    maxHeight: "none"
+  },
+  closed: {
+    maxHeight: "150px",
+    overflow: "hidden"
+  }
+}
+
+function SuccessMessage() {
+  return (
+    <div className="card">
+      <div className="card-content">
+        <span>
+          Success! Please check your inbox to confirm your email address.
+          We cannot post your request until your email is confirmed.
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function Row({ children }) {
+  return (<div className="row">{children}</div>)
+}
+
+function Audience({ selected, onClick }){
+  return (
+    <div className="btn-group">
+      {Object.keys(AUDIENCES).map((key)=>{
+        const isSelected = ( selected == key );
+        let style = {...style, backgroundColor: "#1A3D6D"};
+        if (isSelected) {
+          style = {...style, backgroundColor: "#FCB816"};
+        }
+        return (
+          <a className="waves-effect waves-light btn inline"
+            key={key}
+            type="button"
+            title={AUDIENCES[key]}
+            style={style}
+            onClick={()=>{onClick(key)}}>{key}</a>
+        );
+      })}
+    </div>
+  )
 }
