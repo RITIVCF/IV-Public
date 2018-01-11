@@ -121,6 +121,11 @@ const styles = {
   closed: {
     maxHeight: "150px",
     overflow: "hidden"
+  },
+  audience: {
+    buttongroup: {
+      marginBottom: "5px"
+    }
   }
 }
 
@@ -143,22 +148,24 @@ function Row({ children }) {
 
 function Audience({ selected, onClick }){
   return (
-    <div className="btn-group">
-      {Object.keys(AUDIENCES).map((key)=>{
-        const isSelected = ( selected == key );
-        let style = {...style, backgroundColor: "#1A3D6D"};
-        if (isSelected) {
-          style = {...style, backgroundColor: "#FCB816"};
-        }
-        return (
-          <a className="waves-effect waves-light btn inline"
-            key={key}
-            type="button"
-            title={AUDIENCES[key]}
-            style={style}
-            onClick={()=>{onClick(key)}}>{key}</a>
-        );
-      })}
+    <div>
+      <div className="btn-group" style={styles.audience.buttongroup}>
+        {Object.keys(AUDIENCES).map((key)=>{
+          const isSelected = ( selected == key );
+          let style = {...style, backgroundColor: "#1A3D6D"};
+          if (isSelected) {
+            style = {...style, backgroundColor: "#FCB816"};
+          }
+          return (
+            <a className="waves-effect waves-light btn inline"
+              key={key}
+              type="button"
+              style={style}
+              onClick={()=>{onClick(key)}}>{key}</a>
+            );
+          })}
+        </div>
+      <p>{AUDIENCES[selected]}</p>
     </div>
   )
 }
