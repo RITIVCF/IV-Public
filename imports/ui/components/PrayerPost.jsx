@@ -1,4 +1,5 @@
 import React from 'react';
+import { Random } from 'meteor/random';
 import PrayerUpdate from '../components/PrayerUpdate.jsx';
 
 export default class PrayerPost extends React.Component {
@@ -13,6 +14,10 @@ export default class PrayerPost extends React.Component {
 
     this.prayedForThis = this.prayedForThis.bind(this);
     this.reportThis = this.reportThis.bind(this);
+  }
+
+  componentDidMount(){
+
   }
 
   prayedForThis( event ){
@@ -55,12 +60,8 @@ export default class PrayerPost extends React.Component {
           <span className="right" style={{ fontSize: "12px", color: "#aaa" }}>
             <i>{moment(this.props.prayer.createdAt).format("MMM Do YYYY")}</i>
           </span>
-          <a className="btn-floating btn-large waves-effect waves-light ivy-blue" onClick={this.prayedForThis}>
-            <i className="icon-prayinghands"></i>
-          </a>
-          <a className="btn-floating waves-effect waves-light ivy-blue" style={{ verticalAlign: "bottom" }} onClick={this.reportThis}>
-            <i className="icon-flag"></i>
-          </a>
+          <PrayForThisButton onClick={this.prayedForThis} />
+          <ReportThisButton onClick={this.reportThis} />
           <div style={{ clear: "both"}}></div>
           {!!this.props.prayer.updates && this.props.prayer.updates.map(function(update) {
             return (<PrayerUpdate key={update.id} update={update} />)
@@ -68,5 +69,79 @@ export default class PrayerPost extends React.Component {
         </div>
       </div>
     );
+  }
+}
+
+
+class PrayForThisButton extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      tooltipID: Random.id(5)
+    };
+  }
+
+  componentDidMount(){
+    this.initializeTooltip();
+  }
+
+  initializeTooltip(){
+		$('#'+this.state.tooltipID).tooltip({
+      delay: 50,
+			position: "BOTTOM",
+      tooltip: "I prayed for this"
+    });
+	}
+
+  render() {
+    const { onClick } = this.props;
+    const { tooltipID } = this.state;
+    return (
+      <a
+        id={tooltipID}
+        className="btn-floating btn-large waves-effect waves-light ivy-blue"
+        onClick={onClick}
+      >
+        <i className="icon-prayinghands"></i>
+      </a>
+    )
+  }
+}
+
+class ReportThisButton extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      tooltipID: Random.id(5)
+    };
+  }
+
+  componentDidMount(){
+    this.initializeTooltip();
+  }
+
+  initializeTooltip(){
+		$('#'+this.state.tooltipID).tooltip({
+      delay: 50,
+			position: "BOTTOM",
+      tooltip: "Report this post"
+    });
+	}
+
+  render() {
+    const { onClick } = this.props;
+    const { tooltipID } = this.state;
+    return (
+      <a
+        id={tooltipID}
+        className="btn-floating waves-effect waves-light ivy-blue"
+        style={{ verticalAlign: "bottom" }}
+        onClick={onClick}
+      >
+        <i className="icon-flag"></i>
+      </a>
+    )
   }
 }
