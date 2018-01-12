@@ -7,6 +7,14 @@
     }
   },
   "env": {
-    "es6": true
+    "es6": true,
+    "meteor": true
+  },
+  "extends": ['plugin:react/recommended'],
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "Materialize": true
   }
 }

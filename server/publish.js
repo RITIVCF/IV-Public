@@ -136,6 +136,13 @@ Meteor.publish("SGs", function(){
 });
 
 
+Meteor.publish("PrayerRequest.single", function( requestID ){
+  remote.subscribe('PrayerRequest.single', requestID, function(){
+    return PrayerRequests.find({_id: requestID});
+  });
+  return PrayerRequests.find({_id: requestID});
+});
+
 
 Meteor.publish("activeChurches", function(){
 
