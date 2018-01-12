@@ -44,6 +44,10 @@ remote.subscribe("allCounters", function(){
   return Counters.find();
 });
 
+remote.subscribe("postedPrayers", function(){
+  return PrayerRequests.find();
+});
+
 // remote.subscribe('allContacts', function(){
 //   return Contacts.find();
 // });
@@ -109,7 +113,11 @@ Meteor.publish("prayerEvents", function(){
   }
   return Events.find({$and: [{tags: "Prayer"}, {end: {$gt: new Date()}},
     {start: {$lt: moment().add(1,"weeks")._d}}]}, options);
-})
+});
+
+Meteor.publish("postedPrayers", function() {
+  return PrayerRequests.find();
+});
 
 Meteor.publish("publishedEvents", function(){
 
