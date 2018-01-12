@@ -13,5 +13,5 @@ const Audiences = {
 
 const Types = {
   "praise": "Praise",
-  "request": "Request"
+  "request": "Request",
 };

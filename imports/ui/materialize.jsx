@@ -6,7 +6,8 @@ export {
   Switch,
   Row,
   Column,
-  TextArea
+  TextArea,
+  Card
 };
 
 /*  Switch  */
@@ -66,7 +67,7 @@ Column.propTypes = {
 /*  ./Column  */
 
 /*  TextArea  */
-function TextArea({ value, onChange, name, label }) {
+function TextArea({ value, onChange, name, label, placeholder }) {
   const id = "textarea_"+name+"_"+Random.secret(3);
   return (
     <div className="input-field col s12">
@@ -74,7 +75,8 @@ function TextArea({ value, onChange, name, label }) {
         id={id}
         className="materialize-textarea"
         name={name}
-        onChange={onChange}
+        onChange={(event)=>{onChange(event.target.value)}}
+        placeholder={placeholder}
       ></textarea>
       <label htmlFor={id}>{label}</label>
     </div>
@@ -82,9 +84,29 @@ function TextArea({ value, onChange, name, label }) {
 }
 
 TextArea.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string
 };
 /*  ./TextArea  */
+
+/*  ./Card  */
+function Card ({ children }){
+  return (
+    <div className="card">
+      <div className="card-content">
+        {children}
+      </div>
+    </div>
+  )
+}
+
+Card.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.array
+  ])
+};
+/*  ./Card  */

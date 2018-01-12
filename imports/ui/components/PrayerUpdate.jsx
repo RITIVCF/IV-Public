@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const styles = {
   clear: { clear: "both", paddingTop: "1em" },
@@ -47,4 +48,12 @@ export default class PrayerUpdate extends React.Component {
       </div>
     );
   }
+}
+
+PrayerUpdate.propTypes = {
+  update: PropTypes.shape({
+    type: PropTypes.string,
+    createdAt: PropTypes.date,
+    content: PropTypes.string
+  }).isRequired
 }

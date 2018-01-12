@@ -48,3 +48,4 @@ fortawesome:fontawesome
 ziarno:refresh-sound
 momentjs:moment@=2.12.0
 ultimatejs:tracker-react@=1.0.0
+react-meteor-data

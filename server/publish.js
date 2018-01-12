@@ -25,6 +25,7 @@ Bios = new Mongo.Collection('bios');
 Options = new Mongo.Collection('options', remote);
 Accounts.connection = remote;
 Meteor.users = new Mongo.Collection('users', remote);
+PrayerRequests = new Mongo.Collection('prayerrequests', remote);
 
 //remote.subscribe('churches');
 var test = remote.subscribe("publicOptions", function(){
@@ -126,6 +127,13 @@ Meteor.publish("SGs", function(){
   return Groups.find();
 });
 
+
+Meteor.publish("PrayerRequest.single", function( requestID ){
+  remote.subscribe('PrayerRequest.single', requestID, function(){
+    return PrayerRequests.find({_id: requestID});
+  });
+  return PrayerRequests.find({_id: requestID});
+});
 
 
 Meteor.publish("activeChurches", function(){

@@ -10,17 +10,13 @@ export default class RequestUpdateForm extends React.Component {
     this.state = {
       submitted: false,
       content: '',
-      type: 'request'
+      type: 'praise'
     }
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
     this.handleTypesClick = this.handleTypesClick.bind(this)
-
   }
-
-  // componentDidUpdate(){
-  //   Materialize.updateTextFields();
-  // }
 
   handleSubmit( event ){
     event.preventDefault();
@@ -49,12 +45,13 @@ export default class RequestUpdateForm extends React.Component {
     }
     return (
       <form onSubmit={this.handleSubmit}>
+        <h4>Have an update to this request?</h4>
         <Row>
           <TextArea
             value={content}
             onChange={this.handleContentChange}
             name="content"
-            label="New Request Update"
+            placeholder="Enter update here..."
           />
         </Row>
         <Row>
@@ -62,6 +59,9 @@ export default class RequestUpdateForm extends React.Component {
             selected={type}
             onClick={this.handleTypesClick}
           />
+        </Row>
+        <Row>
+          <button type="submit">Submit</button>
         </Row>
       </form>
     );
@@ -77,7 +77,7 @@ export default class RequestUpdateForm extends React.Component {
 }
 
 RequestUpdateForm.propTypes = {
-  requestID: PropTypes.string,
+  requestID: PropTypes.string.isRequired,
   onSubmit: PropTypes.func,
 };
 
