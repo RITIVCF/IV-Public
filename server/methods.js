@@ -55,5 +55,8 @@ Meteor.methods({
   },
   prayForRequest({ requestID }){
     return remote.call("prayForRequest", { requestID });
+  },
+  deletePrayerRequest({ requestID }){
+    return remote.call("deletePrayerRequest", { requestID });
   }
 });

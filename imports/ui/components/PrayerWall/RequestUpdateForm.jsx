@@ -61,7 +61,11 @@ export default class RequestUpdateForm extends React.Component {
           />
         </Row>
         <Row>
-          <button type="submit">Submit</button>
+          <Column>
+            <button className="btn waves-effect waves-light" type="submit">
+              Submit
+            </button>
+          </Column>
         </Row>
       </form>
     );
@@ -85,24 +89,25 @@ RequestUpdateForm.propTypes = {
 function Types({ selected, onClick }){
   return (
     <Column size="s12 m6">
-      {Object.keys(TYPES).map((key)=>{
-        const isSelected = ( selected == key );
-        let style = {};
-        if (isSelected) {
-          style = {...style, backgroundColor: 'blue'};
-        }
-        return (
-          <button
-            key={key}
-            type="button"
-            title={TYPES[key]}
-            style={style}
-            onClick={()=>{onClick(key)}}
-          >
-            {key}
-          </button>
-        );
-      })}
+      <div className="btn-group">
+        {Object.keys(TYPES).map((key)=>{
+          const isSelected = ( selected == key );
+          let style = {...style, backgroundColor: "#1A3D6D"};
+          if (isSelected) {
+            style = {...style, backgroundColor: "#FCB816"};
+          }
+          return (
+            <a className="waves-effect waves-light btn inline"
+              key={key}
+              type="button"
+              style={style}
+              onClick={()=>{onClick(key)}}
+              >
+                {key}
+              </a>
+            );
+          })}
+      </div>
     </Column>
   )
 }
