@@ -44,9 +44,7 @@ remote.subscribe("allCounters", function(){
   return Counters.find();
 });
 
-remote.subscribe("postedPrayers", function(){
-  return PrayerRequests.find();
-});
+remote.subscribe("postedPrayers");
 
 // remote.subscribe('allContacts', function(){
 //   return Contacts.find();

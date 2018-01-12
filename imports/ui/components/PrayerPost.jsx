@@ -63,8 +63,8 @@ export default class PrayerPost extends React.Component {
           <PrayForThisButton onClick={this.prayedForThis} />
           <ReportThisButton onClick={this.reportThis} />
           <div style={{ clear: "both"}}></div>
-          {!!this.props.prayer.updates && this.props.prayer.updates.map(function(update) {
-            return (<PrayerUpdate key={update.id} update={update} />)
+          {!!this.props.prayer.updates && this.props.prayer.updates.map(function(update, i) {
+            return (<PrayerUpdate key={i} update={update} />)
           })}
         </div>
       </div>

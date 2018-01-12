@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Row, Column, TextArea } from '/imports/ui/materialize';
+import { Switch, Row, Column, TextArea, LoaderCircle } from '/imports/ui/materialize';
 import { Types as TYPES } from '/imports/api/PrayerRequest';
 
 export default class RequestUpdateForm extends React.Component {
@@ -8,6 +8,7 @@ export default class RequestUpdateForm extends React.Component {
     super();
 
     this.state = {
+      success: false,
       submitted: false,
       content: '',
       type: 'praise'
@@ -30,18 +31,23 @@ export default class RequestUpdateForm extends React.Component {
       (err) => {
         if (err) {
           Materialize.toast("Something went wrong. Please try again.",5000);
+          this.setState({submitted: false});
         } else {
-          this.setState({submitted: true});
+          this.setState({success: true});
         }
       }
     );
     this.props.onSubmit&&this.props.onSubmit({...this.state});
+    this.setState({submitted: true});
   }
 
   render() {
-    const { content, type, submitted } = this.state;
-    if ( submitted ) {
+    const { content, type, submitted, success } = this.state;
+    if ( success ) {
       return (<span>Success!</span>);
+    }
+    if ( submitted ) {
+      return <LoaderCircle />;
     }
     return (
       <form onSubmit={this.handleSubmit}>

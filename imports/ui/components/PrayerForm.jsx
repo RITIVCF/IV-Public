@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from '/imports/ui/materialize';
+import { Switch, LoaderCircle } from '/imports/ui/materialize';
 import { Audiences as AUDIENCES } from '/imports/api/PrayerRequest';
 
 export default class PrayerForm extends React.Component {
@@ -8,7 +8,6 @@ export default class PrayerForm extends React.Component {
 
     this.defaultState = {
       status: 'closed',
-      submitted: false,
       anonymous: false,
       name: '',
       email: '',
@@ -38,11 +37,13 @@ export default class PrayerForm extends React.Component {
     Meteor.call("submitPrayerRequest", {...this.state}, (err) => {
       if (err) {
         Materialize.toast("Something went wrong. Please try again.",5000);
+        this.setState({status: 'open'});
       } else {
-        this.setState({status: 'submitted'});
+        this.setState({status: 'success'});
       }
     });
     this.props.onSumbit&&this.props.onSubmit({...this.state});
+    this.setState({status: 'pending'});
   }
 
   handleAnonymousChange(){
@@ -61,8 +62,11 @@ export default class PrayerForm extends React.Component {
 
   render() {
     const { anonymous, name, email, audience, status } = this.state;
-    if (status == "submitted") {
+    if (status == "success") {
       return <SuccessMessage />
+    }
+    if ( status == "pending" ) {
+      return <LoaderCircle />;
     }
     let cardclass = "card prayerform " + status
     return (

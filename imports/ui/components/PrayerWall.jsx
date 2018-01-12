@@ -23,7 +23,7 @@ export default class PrayerWall extends TrackerReact(React.Component) {
   }
 
   getPrayerRequests() {
-    return PrayerRequests.find().fetch();
+    return PrayerRequests.find({}, {sort: {createdAt: -1}}).fetch();
   }
 
   render() {

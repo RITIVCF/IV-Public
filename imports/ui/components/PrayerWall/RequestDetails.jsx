@@ -1,13 +1,13 @@
 import React from 'react';
 import { Random } from 'meteor/random';
 import PropTypes from 'prop-types';
-import { Row, Column, Card } from '/imports/ui/materialize';
+import { Row, Column, Card, LoaderCircle } from '/imports/ui/materialize';
 import PrayerUpdate from '/imports/ui/components/PrayerUpdate';
 import RequestUpdateForm from '/imports/ui/components/PrayerWall/RequestUpdateForm';
 
 export default function RequestDetails({ requestID, request, loading }){
   if (loading) {
-    return <div>Loading...</div>
+    return <LoaderCircle />;
   }
   const { content, name, createdAt, prayedForCount, updates } = request;
   return (
