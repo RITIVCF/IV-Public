@@ -27,7 +27,7 @@ export default class PrayerPost extends React.Component {
         if (err) {
           Materialize.toast("Something went wrong. Please try again.",5000);
         } else {
-          Materialize.toast("Thanks for praying!",5000);
+          Materialize.toast("Thanks for praying! We will let this person know that someone is praying for them.", 5000);
           this.state.prayedFor = true;
         }
       });
@@ -90,7 +90,7 @@ class PrayForThisButton extends React.Component {
 		$('#'+this.state.tooltipID).tooltip({
       delay: 50,
 			position: "BOTTOM",
-      tooltip: "I prayed for this"
+      tooltip: "I am praying for this"
     });
 	}
 
