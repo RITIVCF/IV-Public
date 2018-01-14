@@ -90,7 +90,8 @@ class PrayForThisButton extends React.Component {
 		$('#'+this.state.tooltipID).tooltip({
       delay: 50,
 			position: "BOTTOM",
-      tooltip: "I am praying for this"
+      tooltip: "Let this person know you <br> are praying for them",
+      html: true
     });
 	}
 
@@ -126,7 +127,8 @@ class ReportThisButton extends React.Component {
 		$('#'+this.state.tooltipID).tooltip({
       delay: 50,
 			position: "BOTTOM",
-      tooltip: "Report this post"
+      tooltip: "Report this post if it contains <br> inappropriate content",
+      html: true
     });
 	}
 

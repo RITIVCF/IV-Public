@@ -23,7 +23,7 @@ export default class PrayerGroup extends React.Component {
           </p>
         </div>
         <div style={styles.box}>
-          <a className="waves-effect waves-light btn" href="http://ivy.rit.edu/prayergroup/join">Join the prayer group</a>
+          <a className="waves-effect waves-light btn" href="/prayer/join">Join the prayer group</a>
         </div>
       </div>
     );

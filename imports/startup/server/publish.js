@@ -1,14 +1,6 @@
 import { Accounts } from 'meteor/accounts-base';
 
-if(process.env.NODE_ENV=="development"){
-  var remote = new DDP.connect("http://localhost:3000/");
-}
-else if(process.env.NODE_ENV=="ivystaging"){
-  var remote = new DDP.connect("http://ivy.rit.edu:3010/");
-}
-else {
-  var remote = new DDP.connect("http://ivy.rit.edu/");
-}
+var remote = new DDP.connect( process.env.IVY_ROOT_URL );
 
 export {
   remote

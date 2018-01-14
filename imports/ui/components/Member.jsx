@@ -9,8 +9,8 @@ export default class Member extends React.Component {
             <h1>Become a Member</h1>
             <p>Becoming a member is easy:</p>
             <ol>
-              <li>Create an account in <a href="http://ivy.rit.edu" target="_blank">Ivy</a>. If you already have an account, skip to step 2.</li>
-              <li>Go to <a href="http://ivy.rit.edu/profile" target="_blank">My Profile</a>.</li>
+              <li>Create an account in <a href={process.env.IVY_ROOT_URL} target="_blank">Ivy</a>. If you already have an account, skip to step 2.</li>
+              <li>Go to <a href={process.env.IVY_ROOT_URL + "profile"} target="_blank">My Profile</a>.</li>
               <li>Click on "Become a Member" and follow the instructions.</li>
             </ol>
           </div>
