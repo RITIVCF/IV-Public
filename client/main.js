@@ -1,3 +1,4 @@
+import '/imports/startup/both/index';
 import '../imports/startup/client/main.js';
 $(document).ready(function(){
   $('.parallax').parallax();

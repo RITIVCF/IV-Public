@@ -16,9 +16,7 @@ export default class Banner extends React.Component {
         <p>Intervarsity Christian Fellowship<br />
         at Rochester Institute of Technology<br /></p>
         </div>
-        <div className="parallax">
-          <img src="/images/clothespin_1.jpg" style={parallaxStyles} />
-        </div>
+        <div className="parallax"></div>
       </section>
     );
   }

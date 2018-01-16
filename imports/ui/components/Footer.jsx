@@ -27,7 +27,7 @@ export default class Footer extends React.Component {
           </div>
           <div className="col s12 m4 l4">
             <ul>
-              <li><a href="http://ivy.rit.edu/" target="_blank">Ivy System</a></li>
+              <li><a href={process.env.IVY_ROOT_URL} target="_blank">Ivy System</a></li>
               <li><a href="http://ivcfnynj.org/" target="_blank">New York/New Jersey Region</a></li>
               <li><a href="http://intervarsity.org/" target="_blank">InterVarsity Organization</a></li>
             </ul>
@@ -36,17 +36,17 @@ export default class Footer extends React.Component {
         <div className="Copyright row">
           <ul className="icons">
             <li><a href="https://twitter.com/ritivcf" target="_blank">
-              <i className="fa fa-twitter"></i>
+              <i className="icon-twitter"></i>
             </a></li>
             <li><a href="https://www.facebook.com/ritivcf" target="_blank">
-              <i className="fa fa-facebook-official"></i>
+              <i className="icon-facebook"></i>
             </a></li>
     		    <li><a href="https://instagram.com/ritivcf" target="_blank">
-              <i className="fa fa-instagram"></i>
+              <i className="icon-instagram"></i>
             </a></li>
           </ul>
           <br />
-          Made with love, InterVarsity Christian Fellowship at RIT © 2016
+          Made with love, InterVarsity Christian Fellowship at RIT © 2018
         </div>
       </div>
     </footer>

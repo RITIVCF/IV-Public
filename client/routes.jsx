@@ -5,6 +5,8 @@ import {mount} from 'react-mounter';
 import {MainLayout} from '../imports/ui/containers/MainLayout.jsx';
 import {SignIn} from '../imports/ui/containers/SignIn.jsx';
 
+import RequestDetailsContainer from '/imports/ui/components/PrayerWall/RequestDetailsContainer';
+
 //Wrappers
 import Home from '../imports/ui/pages/Home.jsx';
 import About from '../imports/ui/pages/About.jsx';
@@ -13,6 +15,7 @@ import Churches from '../imports/ui/pages/Churches.jsx';
 import SGSignUp from '../imports/ui/pages/SgSignUp.jsx';
 import ChurchSignUp from '../imports/ui/pages/ChurchSignUp.jsx';
 import Prayer from '../imports/ui/pages/Prayer.jsx';
+import JoinPrayerGroup from '../imports/ui/pages/JoinPrayerGroup';
 import Contact from '../imports/ui/pages/Contact.jsx';
 import MemberWrapper from '../imports/ui/pages/Member.jsx';
 import NotFound from '../imports/ui/pages/NotFound.jsx';
@@ -59,6 +62,23 @@ FlowRouter.route('/prayer',{
 	action() {
 		mount(MainLayout, {
 			content: (<Prayer />)
+		})
+	}
+});
+
+FlowRouter.route('/prayer/join',{
+	action() {
+		mount(MainLayout, {
+			content: <JoinPrayerGroup />
+		})
+	}
+});
+
+FlowRouter.route('/prayer/:requestID', {
+	action(params) {
+		Meteor.call("publishPrayerRequest",{requestID: params.requestID});
+		mount(MainLayout, {
+			content: (<div className="container"><RequestDetailsContainer requestID={params.requestID} /></div>)
 		})
 	}
 });
