@@ -8,7 +8,7 @@ export default class PrayerInfo extends React.Component {
     return (
       <div className="card">
         <div className="card-content">
-          <PrayerGroup />
+          {/* <PrayerGroup /> */}
           <PrayerEvents />
         </div>
       </div>

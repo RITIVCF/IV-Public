@@ -138,8 +138,10 @@ function SuccessMessage() {
     <div className="card">
       <div className="card-content">
         <span>
-          Success! Please check your inbox to confirm your email address.
-          We cannot post your request until your email is confirmed.
+          Success! We care about your request. Please help us keep spammers
+          from submitting to the wall by confirming your email address in
+          the email we just sent you. Your post will not show on the Wall
+          until your email is confirmed.
         </span>
       </div>
     </div>

@@ -30,6 +30,7 @@ export default class PrayerEvents extends TrackerReact(React.Component) {
     }
     return (
       <div>
+        <h4>Upcoming Prayer Events</h4>
         {this.getPrayerEvents().length!=0?this.getPrayerEvents().map((event)=>{
           let start = new moment(event.start.toISOString());
           return (

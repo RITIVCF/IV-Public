@@ -27,7 +27,7 @@ export default class Footer extends React.Component {
           </div>
           <div className="col s12 m4 l4">
             <ul>
-              <li><a href="http://ivy.rit.edu/" target="_blank">Ivy System</a></li>
+              <li><a href={process.env.IVY_ROOT_URL} target="_blank">Ivy System</a></li>
               <li><a href="http://ivcfnynj.org/" target="_blank">New York/New Jersey Region</a></li>
               <li><a href="http://intervarsity.org/" target="_blank">InterVarsity Organization</a></li>
             </ul>

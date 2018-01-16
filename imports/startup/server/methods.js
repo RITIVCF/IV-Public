@@ -1,4 +1,4 @@
-import { remote } from '/server/publish.js';
+import { remote } from '/imports/startup/server/publish.js';
 
 Meteor.methods({
   sgEmail(name, email, message, sgid){
